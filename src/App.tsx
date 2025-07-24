@@ -24,12 +24,10 @@ import OrganizationPage from './pages/OrganizationPage';
 import SingleArchivePage from './pages/SingleArchivePage';
 import MedicalTeamPage from './pages/MedicalTeamPage';
 import ScrollToTop from './utils/ScrollToTop';
-import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (
     <Router>
-      <Analytics />
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
