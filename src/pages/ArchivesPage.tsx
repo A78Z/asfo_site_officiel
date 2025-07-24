@@ -716,15 +716,15 @@ const ArchivesPage: React.FC = () => {
 
   // Get unique years from archives
   const years = Array.from(new Set(archives.map(archive => archive.year))).sort((a, b) => parseInt(b) - parseInt(a));
-  
+
   // Filter archives based on selected year and search term
   const filteredArchives = archives.filter(archive => {
     const matchesYear = selectedYear === "" || archive.year === selectedYear;
-    const matchesSearch = searchTerm === "" || 
+    const matchesSearch = searchTerm === "" ||
       archive.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       archive.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
       archive.summary.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     return matchesYear && matchesSearch;
   });
 
@@ -747,9 +747,9 @@ const ArchivesPage: React.FC = () => {
       {/* Hero Section */}
       <div className="relative py-20 bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/barre.webp" 
-            alt="ASFO volunteers" 
+          <img
+            src="/barre.webp"
+            alt="ASFO volunteers"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-teal-700/90 to-teal-500/70"></div>
@@ -760,12 +760,12 @@ const ArchivesPage: React.FC = () => {
               <Archive className="mr-2" size={16} />
               <span>Nos missions humanitaires</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Archives des Missions
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              Explorez l'historique complet des missions médicales d'ASFO, témoins de notre engagement 
+              Explorez l'historique complet des missions médicales d'ASFO, témoins de notre engagement
               constant auprès des communautés du Fouta depuis plus de deux décennies.
             </p>
 
@@ -794,12 +794,12 @@ const ArchivesPage: React.FC = () => {
       {/* Archives Content */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <SectionTitle 
-            title="Nos Missions Passées" 
+          <SectionTitle
+            title="Nos Missions Passées"
             subtitle="Découvrez l'impact de nos actions humanitaires à travers les années, mission par mission"
             center
           />
-          
+
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-8">
             <div className="relative">
@@ -808,13 +808,12 @@ const ArchivesPage: React.FC = () => {
                 type="text"
                 placeholder="Rechercher une mission, un lieu..."
                 className="w-full pl-12 pr-4 py-4 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent shadow-sm"
-                className="w-full pl-12 pr-4 py-4 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-sm"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
-          
+
           {/* Filters */}
           <ArchiveFilters
             years={years}
@@ -823,7 +822,7 @@ const ArchivesPage: React.FC = () => {
             totalCount={archives.length}
             filteredCount={filteredArchives.length}
           />
-          
+
           {/* Loading State */}
           {isLoading ? (
             <ArchiveSkeletonLoader />
@@ -849,7 +848,7 @@ const ArchivesPage: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">Aucune mission trouvée</h3>
                   <p className="text-lg text-gray-600 mb-8">
-                    Aucune mission ne correspond à vos critères de recherche. 
+                    Aucune mission ne correspond à vos critères de recherche.
                     Essayez d'autres filtres ou termes de recherche.
                   </p>
                   <button
